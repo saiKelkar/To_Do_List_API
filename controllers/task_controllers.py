@@ -11,7 +11,7 @@ def get_task_by_id(id: int, db: Session):
     if not task:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Task with ID {id} not found")
     return task
-
+ 
 def get_task_by_status(status: str, db: Session):
     task = db.query(Task).filter(Task.status == status).all()
     if not task:
